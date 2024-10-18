@@ -1,0 +1,160 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #000000; /* Fondo negro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden; /* Evita el scroll */
+}
+
+#particles-js {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    position: relative; /* Asegurarse de que el contenedor esté en relación con el z-index */
+    z-index: 2; /* Asegurarse de que esté encima de las partículas */
+}
+
+.form-wrapper {
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo negro semitransparente */
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    height: 500px; /* Altura del contenedor */
+}
+
+.form {
+    padding: 40px 20px;
+    position: absolute; /* Cambiado a absoluto para las animaciones */
+    width: 100%;
+    height: 100%; /* Altura del formulario */
+    opacity: 0; /* Comienza invisible */
+    transition: opacity 0.5s ease-in-out; /* Transición de opacidad */
+    pointer-events: none; /* Desactiva eventos de puntero */
+}
+
+.active {
+    opacity: 1; /* Visible por defecto */
+    pointer-events: auto; /* Activa eventos de puntero */
+}
+
+.hidden {
+    opacity: 0; /* Ocultar formulario */
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: white; /* Color del título en blanco */
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    color: white; /* Color de texto en los inputs */
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo blanco semitransparente para los inputs */
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    background-color:  rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+p {
+    margin-top: 20px;
+    color: #666; /* Color del texto en gris */
+}
+
+.toggle-form {
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.toggle-form:hover {
+    text-decoration: underline;
+}
+
+.main-title {
+    color: white; /* Color del título en blanco */
+    font-size: 36px; /* Tamaño grande para el título */
+    margin-bottom: 20px; /* Espacio entre el título y el formulario */
+    text-align: center; /* Centrar el título */
+}
+
+.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 3; /* Asegúrate de que esté encima de otros elementos */
+}
+
+.toast.show {
+    opacity: 1;
+}
+
+
+
+
+  /* Estilos para el spinner */
+  .spinner {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  /* Centrar el spinner */
+  #loadingSpinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+  }

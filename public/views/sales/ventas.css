@@ -1,0 +1,95 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0px;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Estilos del encabezado */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 15px 40px;
+    color: #fff;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav ul li {
+    display: inline;
+}
+
+.nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.user-options {
+    display: flex;
+    align-items: center;
+}
+
+.user-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+/* Estilos generales */
+h1 {
+    text-align: center;
+    color: #333;
+    margin-top: 40px;
+}
+
+#salesChart {
+    max-width: 700px;
+    margin-top: 80px;
+    display: block; /* Asegura que el canvas sea un bloque */
+    margin-left: auto; /* Alinea horizontalmente */
+    margin-right: auto; /* Alinea horizontalmente */
+    display: flex;
+    justify-content: center; /* Alinea horizontalmente */
+    align-items: center; /* Alinea verticalmente */
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+}
+
+table {
+    border-collapse: collapse;
+    width: 60%;
+    margin: 40px auto;
+    font-size: 12px; /* Tamaño reducido de la tabla */
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
