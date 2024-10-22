@@ -163,25 +163,18 @@ document.getElementById('login-form').addEventListener('submit', function(event)
     const userData = JSON.parse(localStorage.getItem('userData'));
 
     // Verificar si los datos coinciden
-   // Verificar si los datos coinciden
-// Verificar si los datos coinciden
-if (userData && userData.email === email && userData.password === password) {
-    console.log('Inicio de sesión exitoso');
-    showToast('Login successful!'); // Mostrar el toast de éxito
-    
-    // Mostrar el spinner de carga
-    document.getElementById('loadingSpinner').style.display = 'block';
-    
-    // Esperar 1.5 segundos antes de redirigir al dashboard
-    setTimeout(function() {
-        window.location.href = 'dashboard.html';
-    }, 1500);  // 1500 ms = 1.5 segundos
-} else {
-    console.log('Email o contraseña incorrectos');
-    showToast('Email or password is incorrect.'); // Mostrar el toast de error
-}
-
-
+    if (userData && userData.email === email && userData.password === password) {
+        console.log('Inicio de sesión exitoso');
+        showToast('Login successful!'); // Mostrar el toast de éxito
+        // Aquí puedes redirigir al usuario o mostrar un mensaje de éxito
+        setTimeout(() => {
+            window.location.href = '../DASHBOARD/dashboard.html'; // Cambia la ruta según sea necesario
+        }, 3000); // Esperar 3 segundos antes de redirigir
+    } else {
+        console.log('Email o contraseña incorrectos');
+        showToast('Email or password is incorrect.'); // Mostrar el toast de error
+        // Aquí puedes mostrar un mensaje de error
+    }
 });
 
 // Escuchar el evento de clic en el botón de "Sign up"

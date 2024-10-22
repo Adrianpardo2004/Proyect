@@ -47,8 +47,3 @@ fetch('/Data/data_2023.json')
         });
     })
     .catch(error => console.error('Error cargando el archivo JSON:', error));
-
-    // Función de Log Out
-    document.getElementById('logout-btn').addEventListener('click', function() {
-    window.location.href = 'index.html'; // Redirige a la página de inicio
-    });
