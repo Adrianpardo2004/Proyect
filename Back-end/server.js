@@ -10,14 +10,14 @@ app.use(cors());
 
 // Middleware para servir archivos estáticos desde la carpeta 'public'
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'public', 'SING_UP')));
-app.use(express.static(path.join(__dirname, 'public', 'DASHBOARD')));
-app.use(express.static(path.join(__dirname, 'public', 'views','sales')));
-app.use(express.static(path.join(__dirname, 'public', 'views','about')));
+app.use(express.static(path.join(__dirname, 'public', 'Login-Menu')));
+app.use(express.static(path.join(__dirname, 'public', 'DashBoard')));
+app.use(express.static(path.join(__dirname, 'public', 'Views','Sales')));
+app.use(express.static(path.join(__dirname, 'public', 'Views','About')));
 app.use(express.static(path.join(__dirname, 'public', 'app.js')));
 // Ruta para el index.html (login) desde la carpeta SING_UP
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'SING_UP', 'index.html'));
+    res.sendFile(path.join(__dirname, 'public', 'Login-Menu', 'index.html'));
 });
 
 

@@ -72,22 +72,22 @@ monthly_sales = store_sales.groupby(['date', 'country_code']).sum().reset_index(
 monthly_sales['date'] = monthly_sales['date'].dt.to_timestamp()
 
 # Crear un diccionario para almacenar los datos por país y mes
-ventas_por_pais = {}
+sales_by_country = {}
 
 for _, row in monthly_sales.iterrows():
     month = row['date'].month
     country_code = row['country_code']
     sales = int(row['sales'])
 
-    if country_code not in ventas_por_pais:
-        ventas_por_pais[country_code] = {"meses": [], "totales": []}
+    if country_code not in sales_by_country:
+        sales_by_country[country_code] = {"meses": [], "totales": []}
 
-    ventas_por_pais[country_code]["meses"].append(month)
-    ventas_por_pais[country_code]["totales"].append(sales)
+    sales_by_country[country_code]["meses"].append(month)
+    sales_by_country[country_code]["totales"].append(sales)
 
 # Guardar los datos de ventas por país en un archivo JSON
-with open(os.path.join(output_dir, 'ventas_por_pais.json'), 'w') as json_file:
-    json.dump(ventas_por_pais, json_file)
+with open(os.path.join(output_dir, 'sales_by_country.json'), 'w') as json_file:
+    json.dump(sales_by_country, json_file)
 
 # Preparar los datos para el modelo
 X = monthly_sales['date'].dt.month.values.reshape(-1, 1)  # Meses como características
@@ -124,11 +124,11 @@ for name, model in models.items():
     predictions_next_year[name] = y_pred_next_year
 
 # Usar los números de los meses para el JSON
-predicciones_2024 = {mes.month: int(pred) for mes, pred in zip(X_next_year['date'], predictions_next_year['Linear Regression'])}
+predictions_2024 = {mes.month: int(pred) for mes, pred in zip(X_next_year['date'], predictions_next_year['Linear Regression'])}
 
 # Guardar las predicciones en un archivo JSON
-with open(os.path.join(output_dir, 'predicciones_2024.json'), 'w') as json_file:
-    json.dump(predicciones_2024, json_file)
+with open(os.path.join(output_dir, 'predictions_2024.json'), 'w') as json_file:
+    json.dump(predictions_2024, json_file)
 
 # Visualizar los resultados
 plt.figure(figsize=(15, 5))
